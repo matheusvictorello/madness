@@ -251,16 +251,16 @@ fn main() {
 
     println!("{:#?}", field);
 
-    // let mut phase = Phase::TemtemSelected(TemtemSelected {});
+    let mut phase = Phase::TemtemSelected(TemtemSelected {});
 
-    // let winner: Winner = loop {
-    //     phase = match phase.try_into() {
-    //         Ok(winner) => {
-    //             break winner;
-    //         }
-    //         Err(decision) => {
-    //             decision.make(Decision::TemtemSelection(TemtemSelectionDecision {}))
-    //         }
-    //     }
-    // };
+    let winner: Winner = loop {
+        phase = match phase.try_into() {
+            Ok(winner) => {
+                break winner;
+            }
+            Err(decision) => {
+                decision.make(Decision::TemtemSelection(TemtemSelectionDecision {}))
+            }
+        }
+    };
 }
